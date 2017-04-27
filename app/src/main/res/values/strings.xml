@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Поиск квартиры</string>
+    <string name="enter_value">введите значение</string>
+    <string name="aparnt_on_floor">Число квартир  на этаже:</string>
+    <string name="floor_count">Число этажей:</string>
+    <string name="apart_number">№ квартиры:</string>
+    <string name="result_string">Этаж: %1$d\nПодъезд: %2$d</string>
+    <string name="bt_calc">Рассчитать</string>
+    <string name="data_for_calculation">Данные для расчета</string>
+    <string name="error_field_not_filled">Заполнены не все поля</string>
+    <string name="error_parsing">Ошибка парсинга значений</string>
+</resources>

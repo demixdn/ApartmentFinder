@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.github.apartmentfinder"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+    }
+    signingConfigs {
+        release {
+            keyAlias 'finderapp'
+            keyPassword 'spuwa3uyAcruqabR'
+            storeFile file('finder.jks')
+            storePassword 'w28fudUpRaswe8ar'
+            v2SigningEnabled false
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+        }
+    }
+    applicationVariants.all
+            {
+                variant ->
+                    variant.outputs.each
+                            {
+                                output ->
+                                    def outputFile = output.outputFile
+                                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                                        def replace_part = "finder"
+                                        def fileName = "../../../apk/"+outputFile.name.replace("app", replace_part)
+                                        output.outputFile = new File((String) outputFile.parent, (String) fileName)
+                                    }
+                            }
+            }
+}
+
