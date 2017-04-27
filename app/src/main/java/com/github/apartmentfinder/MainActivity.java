@@ -11,7 +11,10 @@ import android.widget.Toast;
 import static android.text.TextUtils.isEmpty;
 
 public class MainActivity extends Activity {
-
+    private static final String KEY_APART_NUMBER = "APART_NUMBER";
+    private static final String KEY_FLOOR_COUNT = "FLOOR_COUNT";
+    private static final String KEY_APART_COUNT = "APART_COUNT";
+    private static final String KEY_RESULT = "RESULT";
     private EditText etApartmentNumber;
     private EditText etFloorCount;
     private EditText etApartmentOnFloor;
@@ -32,6 +35,28 @@ public class MainActivity extends Activity {
             }
         });
         tvResult = (TextView) findViewById(R.id.tvResult);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (outState != null) {
+            outState.putString(KEY_APART_NUMBER, etApartmentNumber.getText().toString());
+            outState.putString(KEY_FLOOR_COUNT, etFloorCount.getText().toString());
+            outState.putString(KEY_APART_COUNT, etApartmentOnFloor.getText().toString());
+            outState.putString(KEY_RESULT, tvResult.getText().toString());
+        }
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if (savedInstanceState != null) {
+            etApartmentNumber.setText(savedInstanceState.getString(KEY_APART_NUMBER, ""));
+            etFloorCount.setText(savedInstanceState.getString(KEY_FLOOR_COUNT, ""));
+            etApartmentOnFloor.setText(savedInstanceState.getString(KEY_APART_COUNT, ""));
+            tvResult.setText(savedInstanceState.getString(KEY_RESULT, ""));
+        }
     }
 
     private void calc() {
