@@ -13,7 +13,7 @@
         <item name="android:inputType">numberSigned</item>
         <item name="android:maxLength">5</item>
         <item name="android:maxLines">1</item>
-        <item name="android:layout_weight">11</item>
+        <item name="android:layout_weight">4</item>
         <item name="android:textAppearance">@android:style/TextAppearance.DeviceDefault.Medium
         </item>
     </style>
